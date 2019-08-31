@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +14,59 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Crypto_Exchange_Rates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-Pb-7zO">
+                                <rect key="frame" x="0.0" y="520" width="414" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8bC-Xf-vdC" id="SHi-He-Dlu"/>
+                                    <outlet property="delegate" destination="8bC-Xf-vdC" id="wuQ-NE-fll"/>
+                                </connections>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="brB-rU-nbD">
+                                <rect key="frame" x="95" y="45" width="224" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="brB-rU-nbD" secondAttribute="height" multiplier="1:1" id="aBz-dY-OVL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNF-7j-28J">
+                                <rect key="frame" x="10" y="350" width="394" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="brB-rU-nbD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="17b-NH-4ux"/>
+                            <constraint firstItem="keZ-Pb-7zO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="27v-xo-z3r"/>
+                            <constraint firstItem="keZ-Pb-7zO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6jK-wZ-EcN"/>
+                            <constraint firstItem="brB-rU-nbD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="R3x-LH-9BN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dNF-7j-28J" secondAttribute="trailing" constant="10" id="Uqj-cg-BLX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="keZ-Pb-7zO" secondAttribute="bottom" id="XQA-X1-36J"/>
+                            <constraint firstItem="dNF-7j-28J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="c3e-bw-3TW"/>
+                            <constraint firstItem="brB-rU-nbD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cbx-uu-ZRj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="brB-rU-nbD" secondAttribute="trailing" constant="95" id="dR8-0h-JxS"/>
+                            <constraint firstItem="dNF-7j-28J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="uEA-JV-EFQ"/>
+                            <constraint firstItem="dNF-7j-28J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zsq-Io-FWH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cryptoImage" destination="brB-rU-nbD" id="zYe-Gf-WbE"/>
+                        <outlet property="priceLabel" destination="dNF-7j-28J" id="ohj-Rw-9VA"/>
+                        <outlet property="valuePicker" destination="keZ-Pb-7zO" id="3EU-Jb-tbR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image" width="1024" height="1024"/>
+    </resources>
 </document>
